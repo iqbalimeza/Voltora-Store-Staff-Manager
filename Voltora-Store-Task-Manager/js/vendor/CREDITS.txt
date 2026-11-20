@@ -1,8 +1,0 @@
-Third-party scripts bundled here (unchanged):
-
-anime.min.js     anime.js v3.2.2, (c) Julian Garnier, MIT licence. https://animejs.com
-particles.js     "Particle Effects for Buttons" by Luis Manuel for Codrops, 2018.
-                 https://github.com/codrops/ParticleEffectsButtons
-                 Codrops licence: free to use in personal and commercial projects;
-                 not to be resold or redistributed as-is. Credit is given in README.md
-                 and in the site footer notes. Depends on anime.js.
