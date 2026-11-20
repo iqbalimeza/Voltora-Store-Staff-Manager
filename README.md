@@ -1,6 +1,6 @@
 # a. Project Title & Description
 
-Project Title: VOLTORA – Electronics Repair, Service & Staff Management System
+Project Title: Voltora Store Staff Task Manager
 
 VOLTORA is a web-based electronics repair and service platform designed to manage repair requests, customer services, staff tasks and daily store operations. It allows customers to explore repair services, submit repair requests and track repair progress. Managers can manage repair operations, assign technicians, monitor staff performance and generate reports. Technicians can view assigned repairs and update their work progress.
 
