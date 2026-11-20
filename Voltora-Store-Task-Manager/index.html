@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Voltora Store Staff & Task Manager | Voltora</title>
+    <meta
+      name="description"
+      content="Voltora Store Staff & Task Manager: assign tasks, track staff performance, plan schedules and monitor store expenses."
+    />
+    <meta name="author" content="Voltora Store Staff Task Manager" />
+    <meta name="theme-color" content="#0d1526" />
+    <meta
+      property="og:title"
+      content="Voltora Store Staff & Task Manager | Voltora Store Staff Task Manager"
+    />
+    <meta
+      property="og:description"
+      content="Voltora Store Staff & Task Manager: assign tasks, track staff performance, plan schedules and monitor store expenses."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="assets/logo/favicon.ico" sizes="any" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/logo/favicon-32.png"
+    />
+    <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png" />
+    <script src="js/theme.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/responsive.css" rel="stylesheet" />
+    <link href="css/services.css" rel="stylesheet" />
+    <link href="css/theme.css" rel="stylesheet" />
+    <link href="css/macos.css" rel="stylesheet" />
+    <link href="css/fonts.css" rel="stylesheet" />
+    <link href="css/motion.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg land-nav px-3" aria-label="Main">
+      <a class="navbar-brand" href="index.html" aria-label="Voltora Store home"
+        ><img
+          src="assets/logo/voltora-logo-900.png"
+          height="38"
+          width="181"
+          alt="Voltora Store"
+          style="height: 38px; width: auto"
+      /></a>
+      <button
+        class="navbar-toggler border-0 text-white"
+        data-bs-toggle="collapse"
+        data-bs-target="#lnav"
+        aria-controls="lnav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="bi bi-list fs-2"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="lnav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Repair services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="track.html">Track repair</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#features">Features</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#roles">Roles</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#store">Store info</a>
+          </li>
+        </ul>
+        <a class="btn btn-v" href="login.html"
+          ><i class="bi bi-box-arrow-in-right"></i> Login</a
+        >
+      </div>
+      <div class="quick-tools ms-lg-3 ms-auto" id="quickTools"></div>
+    </nav>
+
+    <main id="main" class="px-3 py-4" style="max-width: 1200px; margin: auto">
+      <section class="land-hero mb-5" aria-labelledby="heroTitle">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <span class="badge rounded-pill text-bg-light mb-3"
+              >Repair, service &amp; staff management</span
+            >
+            <h1 id="heroTitle">Electronics repair, run with clarity.</h1>
+            <p class="lead mt-3">
+              Customers request repairs online. Managers approve them,
+              technicians receive them as tasks, and everyone sees the same live
+              status through collection or delivery.
+            </p>
+            <a href="services.html" class="btn btn-v btn-lg me-2 mt-2"
+              >Our repair services</a
+            ><a href="login.html" class="btn btn-lg btn-outline-light mt-2"
+              >Login</a
+            >
+          </div>
+          <div class="col-lg-5">
+            <img
+              src="assets/images/hero.svg"
+              class="w-100 rounded-4"
+              width="800"
+              height="500"
+              alt="Illustration of the Voltora store team reviewing tasks on a laptop"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="mb-5" aria-labelledby="aboutTitle">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6">
+            <img
+              src="assets/images/store.svg"
+              class="w-100 rounded-4 shadow-sm"
+              loading="lazy"
+              width="800"
+              height="500"
+              alt="Illustration of the Voltora store floor"
+            />
+          </div>
+          <div class="col-lg-6">
+            <h2 id="aboutTitle" class="fw-bold">About Voltora</h2>
+            <p class="mu">
+              Voltora is a fictional electronics store. The Staff &amp; Task
+              Manager helps the manager and the team plan the day: who is
+              working, what needs doing, what is overdue, and what the store is
+              spending on running costs.
+            </p>
+            <p class="mu mb-0">
+              It was built as a front-end prototype for IMS566 Advanced Web
+              Design Development and Content Management.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="mb-5" aria-labelledby="featTitle">
+        <h2 id="featTitle" class="fw-bold mb-3">What you can do</h2>
+        <div class="row g-3">
+          <div class="col-md-6 col-lg-4">
+            <article class="card-v lift h-100">
+              <span class="kpi-ico danger mb-3"
+                ><i class="bi bi-tools"></i
+              ></span>
+              <h3 class="h6 fw-bold">60 repair services</h3>
+              <p class="mu small mb-0">
+                A customer catalogue for phones, laptops, PCs, accessories,
+                software and cameras with request and tracking.
+              </p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <article class="card-v lift h-100">
+              <span class="kpi-ico mb-3"
+                ><i class="bi bi-check2-square"></i
+              ></span>
+              <h3 class="h6 fw-bold">Task management</h3>
+              <p class="mu small mb-0">
+                Create, assign, search and filter tasks, then update progress
+                and status.
+              </p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <article class="card-v lift h-100">
+              <span class="kpi-ico info mb-3"
+                ><i class="bi bi-people-fill"></i
+              ></span>
+              <h3 class="h6 fw-bold">Staff &amp; performance</h3>
+              <p class="mu small mb-0">
+                Profiles with workload, completion rate, current tasks and
+                weekly shifts.
+              </p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <article class="card-v lift h-100">
+              <span class="kpi-ico ok mb-3"
+                ><i class="bi bi-calendar3"></i
+              ></span>
+              <h3 class="h6 fw-bold">Schedule</h3>
+              <p class="mu small mb-0">
+                Calendar and timeline of deadlines, important dates and the
+                weekly roster.
+              </p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <article class="card-v lift h-100">
+              <span class="kpi-ico warn mb-3"
+                ><i class="bi bi-wallet2"></i
+              ></span>
+              <h3 class="h6 fw-bold">Store expenses</h3>
+              <p class="mu small mb-0">
+                Record utilities, maintenance and supplies against a monthly
+                budget.
+              </p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <article class="card-v lift h-100">
+              <span class="kpi-ico mb-3"
+                ><i class="bi bi-bar-chart-line-fill"></i
+              ></span>
+              <h3 class="h6 fw-bold">Live dashboard</h3>
+              <p class="mu small mb-0">
+                Interactive charts that update with period, staff and status
+                filters.
+              </p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <article class="card-v lift h-100">
+              <span class="kpi-ico danger mb-3"
+                ><i class="bi bi-file-earmark-bar-graph"></i
+              ></span>
+              <h3 class="h6 fw-bold">Reports</h3>
+              <p class="mu small mb-0">
+                Task, staff and finance reports with CSV export and print.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="roles" class="mb-5" aria-labelledby="roleTitle">
+        <h2 id="roleTitle" class="fw-bold mb-3">Two roles</h2>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <article class="card-v h-100">
+              <h3 class="h6 fw-bold">
+                <i class="bi bi-shield-lock text-primary me-1"></i>Administrator
+              </h3>
+              <p class="mu small mb-0">
+                Manages staff, creates and assigns tasks, edits the roster,
+                records expenses and reads every report.
+              </p>
+            </article>
+          </div>
+          <div class="col-md-6">
+            <article class="card-v h-100">
+              <h3 class="h6 fw-bold">
+                <i class="bi bi-person-check text-primary me-1"></i>Staff
+              </h3>
+              <p class="mu small mb-0">
+                Sees only their own tasks, updates progress and status, checks
+                the schedule and reviews their own performance.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="store" class="card-v" aria-labelledby="storeTitle">
+        <h2 id="storeTitle" class="h4 fw-bold">Store information</h2>
+        <p class="mb-1"><b>Voltora Electronics Store</b> (fictional)</p>
+        <p class="mu mb-0">
+          12 Jalan Teknologi, Subang Jaya, Selangor &middot; Mon-Sat 10am-9pm,
+          Sun 11am-6pm &middot; hello@voltora.my &middot; 03-5555 0123
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-foot">
+      <div class="inner">
+        <div class="row g-4">
+          <div class="col-lg-5">
+            <img
+              class="foot-logo"
+              src="assets/logo/voltora-logo-900.png"
+              alt="Voltora Store"
+              width="210"
+              height="44"
+            />
+            <p class="mt-3 mb-1 text-white fw-semibold">
+              Electronics Repair, Service &amp; Staff Management System
+            </p>
+            <p class="small mb-0">
+              Repair requests, tasks, staff, schedules and finances connected in
+              one system.
+            </p>
+          </div>
+          <div class="col-6 col-lg-3">
+            <h2>Navigate</h2>
+            <a href="services.html">Repair services</a
+            ><a href="track.html">Track repair</a><a href="#about">About</a
+            ><a href="#features">Features</a><a href="#roles">Roles</a
+            ><a href="login.html">Login</a>
+          </div>
+          <div class="col-6 col-lg-4">
+            <h2>Store information</h2>
+            <p class="small mb-1">
+              <i class="bi bi-geo-alt me-2"></i>12 Jalan Teknologi, Subang Jaya,
+              Selangor
+            </p>
+            <p class="small mb-1">
+              <i class="bi bi-clock me-2"></i>Mon-Sat 10am-9pm, Sun 11am-6pm
+            </p>
+            <p class="small mb-0">
+              <i class="bi bi-envelope me-2"></i>hello@voltora.my
+            </p>
+          </div>
+        </div>
+        <hr />
+        <div class="legal">
+          <span
+            >&copy; 2026 Voltora Store &middot; Electronics Repair, Service
+            &amp; Staff Management</span
+          >
+        </div>
+        <p class="foot-disc">
+          <b>Disclaimer:</b> Voltora Store is a fictional store created for the
+          IMS566 prototype. Demo data is stored only in your browser, and all
+          prices and durations are placeholders, not official quotations.
+        </p>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"
+      defer
+    ></script>
+    <script src="js/fx.js" defer></script>
+    <script src="js/vendor/anime.min.js" defer></script>
+    <script src="js/vendor/particles.js" defer></script>
+    <script src="js/motionfx.js" defer></script>
+    <script src="js/btnfx.js" defer></script>
+  </body>
+</html>

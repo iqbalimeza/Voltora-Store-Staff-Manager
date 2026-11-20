@@ -1,0 +1,47 @@
+/* ==========================================================================
+   VOLTORA - Theme layer: light / dark surfaces. Accent colours are set by js/theme.js
+   through --accent, --accent-600, --accent-rgb, --accent-soft, --accent-on-dark.
+   Loaded after style.css so it can override the default (light) tokens.
+   ========================================================================== */
+:root { --link: var(--accent); --surface-2: #f8fafc; --track: #e9edf5; --pill: #e2e8f0; --line-strong: #d6dbe7; --accent-2: #38bdf8; --accent-rgb: 37, 99, 235; color-scheme: light; }
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0a1020; --card: #111a2e; --line: #1f2c46; --line-strong: #2d3d5e; --text: #e6ecf7; --muted: #9aa8bf;
+  --surface-2: #0e1627; --track: #1c2840; --pill: #1f2c46; --link: var(--accent-on-dark);
+  --ok-soft: rgba(22, 163, 74, .18);     --ok-text: #86efac;
+  --info-soft: rgba(37, 99, 235, .22);   --info-text: #93c5fd;
+  --warn-soft: rgba(245, 158, 11, .18);  --warn-text: #fcd34d;
+  --danger-soft: rgba(220, 38, 38, .22); --danger-text: #fca5a5;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4); --shadow-md: 0 10px 28px rgba(0, 0, 0, .45);
+  --bs-body-bg: var(--bg); --bs-body-color: var(--text); --bs-border-color: var(--line); --bs-secondary-bg: var(--surface-2); --bs-tertiary-bg: var(--surface-2);
+  --bs-modal-bg: var(--card); --bs-dropdown-bg: var(--card); --bs-dropdown-link-hover-bg: var(--surface-2);
+}
+a { color: var(--link); } a:hover { color: var(--accent-600); }
+[data-theme="dark"] a:hover { color: #fff; }
+.sb-link, .btn, .btn-v, .btn-v:hover, .bd, .chip, .sb-brand, .top-title, .user-chip, .dropdown-item, .page-link { color: inherit; }
+.btn-v, .btn-v:hover, .btn-v:focus { color: #fff; }
+.form-control, .form-select { background-color: var(--card); color: var(--text); border-color: var(--line); }
+[data-theme="dark"] .form-control, [data-theme="dark"] .form-select { background-color: var(--surface-2); }
+.form-control:focus, .form-select:focus { border-color: var(--accent); box-shadow: 0 0 0 .2rem rgba(var(--accent-rgb), .22); }
+.form-check-input:checked { background-color: var(--accent); border-color: var(--accent); }
+.form-range::-webkit-slider-thumb { background: var(--accent); } .form-range::-moz-range-thumb { background: var(--accent); }
+.modal-content { background: var(--card); color: var(--text); border: 1px solid var(--line); }
+.modal-header, .modal-footer { border-color: var(--line); }
+.page-link { background: var(--card); border-color: var(--line); color: var(--text); }
+.page-item.active .page-link { background: var(--accent); border-color: var(--accent); color: #fff; }
+.table > :not(caption) > * > * { background-color: transparent; color: inherit; border-color: var(--line); }
+.text-primary { color: var(--accent) !important; }
+::selection { background: rgba(var(--accent-rgb), .3); }
+
+/* Theme switch in the top bar */
+.theme-toggle .bi-sun-fill { display: none; } [data-theme="dark"] .theme-toggle .bi-sun-fill { display: inline; } [data-theme="dark"] .theme-toggle .bi-moon-stars-fill { display: none; }
+
+/* Appearance settings */
+.mode-opt, .accent-opt { background: var(--card); border: 2px solid var(--line); border-radius: 14px; color: var(--text); transition: border-color .2s, transform .2s, box-shadow .2s; cursor: pointer; }
+.mode-opt { padding: .8rem 1rem; display: flex; flex-direction: column; align-items: center; gap: 6px; font-weight: 600; min-width: 96px; }
+.mode-opt i { font-size: 1.3rem; }
+.mode-opt:hover, .accent-opt:hover { transform: translateY(-2px); border-color: var(--line-strong); }
+.mode-opt[aria-pressed="true"], .accent-opt[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(var(--accent-rgb), .2); }
+.accent-opt { padding: .6rem .7rem; display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: .82rem; text-align: left; }
+.accent-opt .sw { width: 26px; height: 26px; border-radius: 50%; flex: none; box-shadow: inset 0 0 0 2px rgba(255,255,255,.35); }
+.preview-box { border: 1px solid var(--line); border-radius: 16px; padding: 1rem; background: var(--bg); }
