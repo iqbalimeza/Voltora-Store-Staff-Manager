@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Finance | Voltora</title>
+    <meta
+      name="description"
+      content="Track Voltora store operating expenses, the monthly budget and spending by category."
+    />
+    <meta name="author" content="Voltora Store Staff Task Manager" />
+    <meta name="theme-color" content="#0d1526" />
+    <meta
+      property="og:title"
+      content="Finance | Voltora Store Staff Task Manager"
+    />
+    <meta
+      property="og:description"
+      content="Track Voltora store operating expenses, the monthly budget and spending by category."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="assets/logo/favicon.ico" sizes="any" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/logo/favicon-32.png"
+    />
+    <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png" />
+    <script src="js/theme.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/responsive.css" rel="stylesheet" />
+    <link href="css/services.css" rel="stylesheet" />
+    <link href="css/theme.css" rel="stylesheet" />
+    <link href="css/macos.css" rel="stylesheet" />
+    <link href="css/fonts.css" rel="stylesheet" />
+    <link href="css/motion.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="nav"></div>
+    <main>
+      <nav class="crumbs" aria-label="Breadcrumb" data-anim="header">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Finance</li>
+        </ol>
+      </nav>
+      <header class="page-head" data-anim="header">
+        <div>
+          <h1>Finance</h1>
+          <p>
+            Store operating expenses and monthly budget (no sales or customer
+            payments).
+          </p>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-o" id="exportBtn">
+            <i class="bi bi-download"></i> Export CSV</button
+          ><button class="btn btn-v" id="addBtn">
+            <i class="bi bi-plus-lg"></i> Add expense
+          </button>
+        </div>
+      </header>
+
+      <section aria-labelledby="sumHead">
+        <h2 class="visually-hidden" id="sumHead">Finance summary</h2>
+        <div class="row g-3 mb-3" id="summary"></div>
+      </section>
+
+      <div class="row g-3 mb-3">
+        <div class="col-lg-7">
+          <article class="card-v h-100" data-anim="chart">
+            <div class="card-head">
+              <div>
+                <h2 class="card-title">Monthly Store Expenses</h2>
+                <p class="card-sub">Click a bar to filter the table by month</p>
+              </div>
+            </div>
+            <div class="chart-box"><canvas id="cMonthly"></canvas></div>
+          </article>
+        </div>
+        <div class="col-lg-5">
+          <article class="card-v h-100" data-anim="chart">
+            <div class="card-head">
+              <div>
+                <h2 class="card-title">Expenses by Category</h2>
+                <p class="card-sub">Click a segment to filter the table</p>
+              </div>
+              <select
+                id="catPeriod"
+                class="form-select form-select-sm w-auto"
+                aria-label="Category period"
+              >
+                <option value="month">This month</option>
+                <option value="six" selected>Last 6 months</option>
+              </select>
+            </div>
+            <div class="chart-box"><canvas id="cCat"></canvas></div>
+          </article>
+        </div>
+      </div>
+
+      <section
+        class="card-v filter-bar"
+        data-anim="filter"
+        aria-label="Search and filter expenses"
+      >
+        <div class="fg grow">
+          <label for="q">Search</label
+          ><input
+            id="q"
+            type="search"
+            class="form-control"
+            placeholder="Expense name or ID"
+          />
+        </div>
+        <div class="fg">
+          <label for="fCat">Category</label
+          ><select id="fCat" class="form-select">
+            <option value="">All categories</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="fStatus">Status</label
+          ><select id="fStatus" class="form-select">
+            <option value="">All</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="fMonth">Month</label
+          ><input id="fMonth" type="month" class="form-control" />
+        </div>
+        <div class="fg flex-grow-0" style="flex: 0 0 auto">
+          <button class="btn btn-o" id="fReset" aria-label="Reset filters">
+            <i class="bi bi-arrow-counterclockwise"></i>
+          </button>
+        </div>
+      </section>
+
+      <section class="card-v" data-anim="table" aria-labelledby="tblHead">
+        <div class="card-head">
+          <h2 class="card-title" id="tblHead">Expense records</h2>
+          <span class="small mu" id="tblTotal"></span>
+        </div>
+        <div class="table-wrap">
+          <table class="table table-v">
+            <thead>
+              <tr>
+                <th>Expense</th>
+                <th>Category</th>
+                <th class="text-end">Amount</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th class="text-end">Action</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+        <div id="pager"></div>
+      </section>
+
+      <div
+        class="modal fade"
+        id="expModal"
+        tabindex="-1"
+        aria-labelledby="expTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <form class="modal-content" id="expForm" novalidate>
+            <div class="modal-header">
+              <h2 class="modal-title" id="expTitle">Add expense</h2>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <input type="hidden" id="xId" />
+              <div class="row g-3">
+                <div class="col-12">
+                  <label class="form-label" for="xName">Expense *</label
+                  ><input id="xName" class="form-control" maxlength="60" />
+                  <div class="invalid-feedback">
+                    Please enter the expense name.
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="xCat">Category</label
+                  ><select id="xCat" class="form-select"></select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="xAmt">Amount (RM) *</label
+                  ><input
+                    id="xAmt"
+                    type="number"
+                    min="0.01"
+                    step="0.01"
+                    class="form-control"
+                  />
+                  <div class="invalid-feedback">Enter an amount above 0.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="xDate">Date *</label
+                  ><input id="xDate" type="date" class="form-control" />
+                  <div class="invalid-feedback">Choose a date.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="xStatus">Status</label
+                  ><select id="xStatus" class="form-select"></select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="xNote">Note</label
+                  ><input
+                    id="xNote"
+                    class="form-control"
+                    maxlength="120"
+                    placeholder="Optional"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-o" data-bs-dismiss="modal">
+                Cancel</button
+              ><button class="btn btn-v" type="submit">
+                <i class="bi bi-check2"></i> Save expense
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="budModal"
+        tabindex="-1"
+        aria-labelledby="budTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+          <form class="modal-content" id="budForm" novalidate>
+            <div class="modal-header">
+              <h2 class="modal-title" id="budTitle">Monthly budget</h2>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <label class="form-label" for="bAmt">Budget per month (RM)</label
+              ><input
+                id="bAmt"
+                type="number"
+                min="1"
+                step="50"
+                class="form-control"
+              />
+              <div class="invalid-feedback">Enter an amount above 0.</div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-v" type="submit">Save budget</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"
+      defer
+    ></script>
+    <script src="js/fx.js" defer></script>
+    <script src="js/vendor/anime.min.js" defer></script>
+    <script src="js/vendor/particles.js" defer></script>
+    <script src="js/motionfx.js" defer></script>
+    <script src="js/btnfx.js" defer></script>
+    <script src="js/data.js" defer></script>
+    <script src="js/services-data.js" defer></script>
+    <script src="js/repairs.js" defer></script>
+    <script src="js/layout.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script src="js/charts.js" defer></script>
+    <script src="js/finance.js" defer></script>
+  </body>
+</html>

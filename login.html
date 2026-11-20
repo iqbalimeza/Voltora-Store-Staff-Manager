@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login | Voltora</title>
+    <meta
+      name="description"
+      content="Sign in to the Voltora Store Staff & Task Manager."
+    />
+    <meta name="author" content="Voltora Store Staff Task Manager" />
+    <meta name="theme-color" content="#0d1526" />
+    <meta
+      property="og:title"
+      content="Login | Voltora Store Staff Task Manager"
+    />
+    <meta
+      property="og:description"
+      content="Sign in to the Voltora Store Staff & Task Manager."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="assets/logo/favicon.ico" sizes="any" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/logo/favicon-32.png"
+    />
+    <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png" />
+    <script src="js/theme.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/responsive.css" rel="stylesheet" />
+    <link href="css/services.css" rel="stylesheet" />
+    <link href="css/theme.css" rel="stylesheet" />
+    <link href="css/macos.css" rel="stylesheet" />
+    <link href="css/fonts.css" rel="stylesheet" />
+    <link href="css/motion.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main class="auth-split" id="main">
+      <section class="auth-art" aria-label="About Voltora">
+        <a href="index.html" aria-label="Voltora Store home"
+          ><img
+            class="auth-logo"
+            src="assets/logo/voltora-logo-900.png"
+            width="260"
+            height="54"
+            alt="Voltora Store"
+        /></a>
+        <div>
+          <h2>Smarter tasks. Better store management.</h2>
+          <p class="lead" style="color: #b6c0d4">
+            Staff manage tasks and repairs. Customers follow their own repairs,
+            read only.
+          </p>
+          <ul class="list-unstyled mt-4 mb-0">
+            <li>
+              <i class="bi bi-check2-circle"></i>Assign tasks and repair jobs,
+              track progress in real time
+            </li>
+            <li>
+              <i class="bi bi-check2-circle"></i>See staff performance and
+              workload at a glance
+            </li>
+            <li>
+              <i class="bi bi-check2-circle"></i>Plan shifts, deadlines and
+              store expenses
+            </li>
+          </ul>
+        </div>
+        <small style="color: #94a3b8"
+          >&copy; 2026 Voltora Store Staff Task Manager &middot; Internal
+          Management System</small
+        >
+      </section>
+
+      <section class="auth-form" aria-label="Sign in">
+        <div class="auth-card" id="authCard">
+          <h1 class="h3 fw-bold mb-1" id="authTitle">Welcome back</h1>
+          <p class="mu" id="authSub">Sign in as Manager, Staff or Customer.</p>
+
+          <ul class="nav nav-pills mb-3" role="tablist">
+            <li class="nav-item flex-fill">
+              <button
+                class="nav-link active w-100"
+                id="tabLogin"
+                data-bs-toggle="pill"
+                data-bs-target="#paneLogin"
+                type="button"
+                role="tab"
+              >
+                Log in
+              </button>
+            </li>
+            <li class="nav-item flex-fill">
+              <button
+                class="nav-link w-100"
+                id="tabReg"
+                data-bs-toggle="pill"
+                data-bs-target="#paneReg"
+                type="button"
+                role="tab"
+              >
+                Register
+              </button>
+            </li>
+          </ul>
+
+          <div id="alertBox" class="alert d-none" role="alert"></div>
+
+          <div class="tab-content">
+            <div
+              class="tab-pane fade show active"
+              id="paneLogin"
+              role="tabpanel"
+            >
+              <form id="loginForm" novalidate>
+                <div class="mb-3">
+                  <label class="form-label" for="us">Email or username</label>
+                  <input
+                    id="us"
+                    class="form-control"
+                    autocomplete="username"
+                    placeholder="iqbal@voltora.my"
+                  />
+                  <div class="invalid-feedback" id="usErr"></div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="pw">Password</label>
+                  <div class="input-group has-validation">
+                    <input
+                      id="pw"
+                      type="password"
+                      class="form-control"
+                      autocomplete="current-password"
+                    />
+                    <button
+                      type="button"
+                      id="eye"
+                      class="btn btn-o"
+                      aria-label="Show or hide password"
+                    >
+                      <i class="bi bi-eye"></i>
+                    </button>
+                    <div class="invalid-feedback" id="pwErr"></div>
+                  </div>
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-center mb-3"
+                >
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="rm"
+                    /><label class="form-check-label" for="rm"
+                      >Remember me</label
+                    >
+                  </div>
+                  <a
+                    href="#"
+                    data-bs-toggle="modal"
+                    data-bs-target="#forgotModal"
+                    >Forgot password?</a
+                  >
+                </div>
+                <button
+                  class="btn btn-v w-100 mb-3"
+                  id="loginBtn"
+                  type="submit"
+                >
+                  <span
+                    class="spinner-border spinner-border-sm d-none me-1"
+                    id="spin"
+                  ></span
+                  ><span id="loginTxt">Log in</span>
+                </button>
+              </form>
+              <div class="card-v p-3">
+                <div class="small fw-semibold mb-2">
+                  Demo accounts
+                  <span class="mu fw-normal">(password: Voltora@123)</span>
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    class="btn btn-o btn-sm demo-chip"
+                    data-u="iqbal@voltora.my"
+                  >
+                    <i class="bi bi-shield-lock"></i> Manager: Iqbal
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-o btn-sm demo-chip"
+                    data-u="adli@voltora.my"
+                  >
+                    <i class="bi bi-person"></i> Staff: Adli
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-o btn-sm demo-chip"
+                    data-u="customer@voltora.my"
+                  >
+                    <i class="bi bi-person-heart"></i> Customer: Jamal
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="paneReg" role="tabpanel">
+              <form id="regForm" novalidate>
+                <div class="mb-3">
+                  <label class="form-label" for="rn">Full name</label
+                  ><input id="rn" class="form-control" autocomplete="name" />
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="re">Email</label
+                  ><input
+                    id="re"
+                    type="email"
+                    class="form-control"
+                    autocomplete="email"
+                  />
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="rph"
+                    >Phone number (optional)</label
+                  ><input
+                    id="rph"
+                    type="tel"
+                    class="form-control"
+                    autocomplete="tel"
+                    placeholder="012-345 6789"
+                  />
+                  <div class="form-text">
+                    Repairs requested with this email or phone number appear in
+                    your account.
+                  </div>
+                </div>
+                <div class="row g-2 mb-3">
+                  <div class="col-sm-6">
+                    <label class="form-label" for="rp">Password</label
+                    ><input
+                      id="rp"
+                      type="password"
+                      class="form-control"
+                      autocomplete="new-password"
+                    />
+                    <div class="invalid-feedback"></div>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label" for="rc">Confirm password</label
+                    ><input
+                      id="rc"
+                      type="password"
+                      class="form-control"
+                      autocomplete="new-password"
+                    />
+                    <div class="invalid-feedback"></div>
+                  </div>
+                </div>
+                <p class="small mu">
+                  At least 8 characters including a number. New accounts are
+                  Customer accounts: you can follow your own repairs (read
+                  only).
+                </p>
+                <button class="btn btn-v w-100" type="submit">
+                  Create account
+                </button>
+              </form>
+            </div>
+          </div>
+          <p class="small mu text-center mt-3 mb-0">
+            <a href="index.html"
+              ><i class="bi bi-arrow-left"></i> Back to home</a
+            >
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <div
+      class="modal fade"
+      id="forgotModal"
+      tabindex="-1"
+      aria-labelledby="forgotTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <form class="modal-content" id="forgotForm" novalidate>
+          <div class="modal-header">
+            <h2 class="modal-title" id="forgotTitle">Reset password</h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p class="mu small">
+              Demo reset: no email is sent. Enter a registered email and the
+              password is reset to <code>Voltora@123</code>.
+            </p>
+            <label class="form-label" for="fe">Registered email</label
+            ><input
+              id="fe"
+              class="form-control"
+              placeholder="iqbal@voltora.my"
+            />
+            <div class="invalid-feedback" id="feErr"></div>
+            <div
+              id="fMsg"
+              class="alert alert-success mt-3 d-none"
+              role="status"
+            ></div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-v">Reset password</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"
+      defer
+    ></script>
+    <script src="js/fx.js" defer></script>
+    <script src="js/vendor/anime.min.js" defer></script>
+    <script src="js/vendor/particles.js" defer></script>
+    <script src="js/motionfx.js" defer></script>
+    <script src="js/btnfx.js" defer></script>
+    <script src="js/data.js" defer></script>
+    <script src="js/services-data.js" defer></script>
+    <script src="js/repairs.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script src="js/auth.js" defer></script>
+  </body>
+</html>
